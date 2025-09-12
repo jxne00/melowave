@@ -1,12 +1,31 @@
-# React + Vite
+# Spotify Play
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Spotify search application built with React, Vite, and TailwindCSS. Allows users to log in via Spotify, search for tracks, and explore track details seamlessly.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Spotify OAuth with PKCE flow
+-   Search for tracks by name
+-   Display album cover, track name, artist
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/jxne00/spotify-play.git
+    ```
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+3. Create .env file with Spotify credentials:
+
+    ```bash
+    VITE_SPOTIFY_CLIENT_ID=your_client_id
+    VITE_SPOTIFY_REDIRECT_URI=your_redirect_uri
+    ```
+
+4. Run locally
+    ```bash
+    npm run dev
+    ```
