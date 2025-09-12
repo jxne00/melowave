@@ -3,9 +3,9 @@ import { useAuth } from './context/useAuth';
 import {
     MagnifyingGlassIcon,
     ArrowRightOnRectangleIcon,
-    PlayIcon,
 } from '@heroicons/react/24/solid';
 import SpotifyLogo from './assets/spotify-white-icon.svg';
+import PlayPNG from './assets/pause-play.png';
 
 export default function App() {
     const { accessToken, ready, login, logout } = useAuth();
@@ -57,7 +57,7 @@ export default function App() {
             {!accessToken ? (
                 <div className='flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-gray-900 to-black p-4'>
                     <div className='bg-gray-800 rounded-xl shadow-2xl p-10 flex flex-col items-center space-y-6 w-full max-w-md'>
-                        <PlayIcon className='w-12 h-12 text-indigo-400' />
+                        <img src={PlayPNG} alt='Play' className='w-12 h-12' />
 
                         <h1 className='text-4xl font-extrabold text-white text-center'>
                             SPOTIFY PLAY
@@ -84,7 +84,7 @@ export default function App() {
                     {/* header */}
                     <div className='flex justify-between items-center mb-6'>
                         <div className='flex items-center space-x-2'>
-                            <PlayIcon className='w-6 h-6 text-indigo-200' />
+                            <img src={PlayPNG} alt='Play' className='w-6 h-6' />
                             <h2 className='text-2xl font-bold text-white-200'>
                                 SPOTIFY PLAY
                             </h2>
