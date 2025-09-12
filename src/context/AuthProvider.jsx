@@ -4,14 +4,19 @@ import { startAuth, exchangeCodeForTokens, clearAuth } from '../lib/spotifyAuth'
 
 // component that provides auth state to children, wraps around app
 export function AuthProvider({ children }) {
-    const [accessToken, setAccessToken] = useState(null);
+    const [accessToken, setAccessToken] = useState(() => {
+        // check if token already exists
+        const stored = localStorage.getItem('spotify_auth');
+        return stored ? JSON.parse(stored).access_token : null;
+    });
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const code = params.get('code');
+        const state = params.get('state');
 
-        if (code) {
+        if (code && state) {
             exchangeCodeForTokens(code)
                 .then((auth) => setAccessToken(auth.access_token))
                 .catch((err) => console.error(err))
@@ -34,7 +39,7 @@ export function AuthProvider({ children }) {
 
     return (
         <AuthContext.Provider value={{ accessToken, ready, login, logout }}>
-            {children}
+            {ready ? children : <div>Loading...</div>}
         </AuthContext.Provider>
     );
 }

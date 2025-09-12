@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+/* :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -69,4 +75,4 @@ button:focus-visible {
     button {
         background-color: #f9f9f9;
     }
-}
+} */
