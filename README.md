@@ -1,12 +1,17 @@
 # Spotify Play
 
-A Spotify search application built with React, Vite, and TailwindCSS. Allows users to log in via Spotify, search for tracks, and explore track details seamlessly.
+A Spotify search application built with React, Vite, and TailwindCSS. Users can log in via Spotify, search for tracks, explore track details and play tracks.
 
 ## Features
 
 -   Spotify OAuth with PKCE flow
--   Search for tracks by name
--   Display album cover, track name, artist
+-   Search for tracks
+-   View track details (album, artist)
+-   Play tracks with playback controls
+
+## Demo
+
+This app is deployed on [spotify-play-rho.vercel.app](spotify-play-rho.vercel.app).
 
 ## Setup
 
