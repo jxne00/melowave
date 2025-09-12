@@ -70,10 +70,7 @@ export default function App() {
                                     muted
                                     playsInline
                                     className='absolute inset-0 w-full h-full object-cover'>
-                                    <source
-                                        src='/src/assets/music-bg.mp4'
-                                        type='video/mp4'
-                                    />
+                                    <source src='music-bg.mp4' type='video/mp4' />
                                 </video>
 
                                 {/* overlay */}
