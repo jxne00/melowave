@@ -55,8 +55,22 @@ export default function App() {
     return (
         <div className='min-h-screen bg-gray-900 text-gray-100'>
             {!accessToken ? (
-                <div className='flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-gray-900 to-black p-4'>
-                    <div className='bg-gray-800 rounded-xl shadow-2xl p-10 flex flex-col items-center space-y-6 w-full max-w-md'>
+                <div className='relative flex items-center justify-center min-h-screen bg-black'>
+                    {/* mp4 vid background */}
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className='absolute inset-0 w-full h-full object-cover'>
+                        <source src='/src/assets/music-bg.mp4' type='video/mp4' />
+                    </video>
+
+                    {/* overlay */}
+                    <div className='absolute inset-0 bg-black bg-opacity-60'></div>
+
+                    {/* login box */}
+                    <div className='relative bg-[#101640]/90 backdrop-blur-md border border-indigo-600/30 shadow-[0_0_20px_rgba(99,102,241,0.3)] rounded-xl p-10 flex flex-col items-center space-y-6 w-full max-w-md'>
                         <img src={PlayPNG} alt='Play' className='w-12 h-12' />
 
                         <h1 className='text-4xl font-extrabold text-white text-center'>
