@@ -1,12 +1,12 @@
 # melowave
 
-A music music web app built with React, Vite, and TailwindCSS. It integrates with the Spotify API so users can log in, search for tracks, view track details, and control playback directly in the browser.
+A music web app built with React, Vite, and TailwindCSS. It integrates with the Spotify API so users can log in, search for tracks, view track details, and control playback directly in the browser.
 
 ## Features
 
 -   Spotify OAuth with PKCE flow
 -   Search for tracks
--   View track details (album, artist)
+-   View track details
 -   Play tracks with playback controls
 
 ## Setup
@@ -33,6 +33,11 @@ A music music web app built with React, Vite, and TailwindCSS. It integrates wit
 
 ## Demo
 
-![Login](src/assets/login.png)
-![Search](src/assets/search.png)
-![Now Playing](src/assets/playing.png)
+### Login
+![Login](src/assets/demo/login.png)
+
+### Search for tracks
+![Search](src/assets/demo/search.png)
+
+### Now Playing
+![Now Playing](src/assets/demo/playing.png)
