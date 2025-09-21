@@ -9,10 +9,6 @@ A music music web app built with React, Vite, and TailwindCSS. It integrates wit
 -   View track details (album, artist)
 -   Play tracks with playback controls
 
-## Demo
-
-This app is deployed on [spotify-play-rho.vercel.app](spotify-play-rho.vercel.app).
-
 ## Setup
 
 1. Clone this repository:
@@ -34,3 +30,9 @@ This app is deployed on [spotify-play-rho.vercel.app](spotify-play-rho.vercel.ap
     ```bash
     npm run dev
     ```
+
+## Demo
+
+![Login](src/assets/login.png)
+![Search](src/assets/search.png)
+![Now Playing](src/assets/playing.png)
