@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { PlayIcon, PauseIcon } from '@heroicons/react/24/solid';
+import { PlayIcon, PauseIcon, ArrowLeftCircleIcon } from '@heroicons/react/24/solid';
 
 export default function NowPlaying({ accessToken }) {
     const location = useLocation();
@@ -126,35 +126,37 @@ export default function NowPlaying({ accessToken }) {
     }
 
     return (
-        <div className='min-h-screen bg-gray-900 text-gray-100 p-8 flex flex-col items-center'>
-            {/* album name above the cover */}
-            <p className='text-sm text-gray-400 mb-2'>Album: {track.album.name}</p>
+        <div className='min-h-screen bg-gray-900 text-gray-100 p-8 flex flex-col items-center relative'>
+            {/* back btn */}
+            <button
+                onClick={handleBack}
+                className='absolute top-8 left-8 flex items-center text-indigo-400 hover:text-indigo-500'>
+                <ArrowLeftCircleIcon className='w-5 h-5 mr-1' />
+                BACK
+            </button>
+
+            {/* album name  */}
+            <p className='font-inter text-md text-gray-400 mb-2 mt-10'>
+                Album: {track.album.name}
+            </p>
 
             {/* song cover */}
             <img
                 src={track.album.images[0]?.url}
                 alt={track.name}
-                className='w-64 h-64 rounded-lg shadow-2xl mb-6'
+                className='w-64 h-64 rounded-lg shadow-2xl mb-8'
             />
 
-            {/* track details */}
-            <h1 className='text-3xl font-bold mb-2'>{track.name}</h1>
-            <p className='text-lg text-gray-400 mb-8'>
+            {/* track name */}
+            <h1 className='font-inter text-3xl font-semibold mb-2'>{track.name}</h1>
+
+            {/* artists */}
+            <p className='font-inter text-lg text-gray-400 mb-8'>
                 {track.artists.map((a) => a.name).join(', ')}
             </p>
 
             {/* playbar */}
             <div className='flex flex-col items-center w-full max-w-md'>
-                <button
-                    className='mb-4 p-3 bg-indigo-500 hover:bg-indigo-600 rounded-full shadow text-white flex items-center justify-center'
-                    onClick={togglePlay}>
-                    {isPaused ? (
-                        <PlayIcon className='w-6 h-6' />
-                    ) : (
-                        <PauseIcon className='w-6 h-6' />
-                    )}
-                </button>
-
                 <input
                     type='range'
                     min={0}
@@ -167,17 +169,27 @@ export default function NowPlaying({ accessToken }) {
                     }}
                     className='w-full'
                 />
-                <div className='flex justify-between w-full text-sm text-gray-400'>
+                <div className='font-inter flex justify-between w-full text-sm text-gray-400'>
                     <span>{formatTime(position)}</span>
                     <span>{formatTime(duration - position)}</span>
                 </div>
+
+                <button
+                    className='mt-4 p-3 bg-indigo-500 hover:bg-indigo-600 rounded-full shadow text-white flex items-center justify-center'
+                    onClick={togglePlay}>
+                    {isPaused ? (
+                        <PlayIcon className='w-6 h-6' />
+                    ) : (
+                        <PauseIcon className='w-6 h-6' />
+                    )}
+                </button>
             </div>
 
-            <button
+            {/* <button
                 onClick={handleBack}
                 className='mt-6 text-indigo-400 hover:underline'>
                 ← Back to search
-            </button>
+            </button> */}
         </div>
     );
 }

@@ -81,11 +81,11 @@ export default function App() {
                                     <img
                                         src={PlayPNG}
                                         alt='Play'
-                                        className='w-12 h-12'
+                                        className='w-10 h-10'
                                     />
 
-                                    <h1 className='text-4xl font-extrabold text-white text-center'>
-                                        SPOTIFY PLAY
+                                    <h1 className='font-archivo text-4xl font-extrabold text-white text-center'>
+                                        melowave
                                     </h1>
 
                                     <p className='text-gray-400 text-center'>
@@ -112,14 +112,14 @@ export default function App() {
                             <div className='p-4'>
                                 {/* header */}
                                 <div className='flex justify-between items-center mb-6'>
-                                    <div className='flex items-center space-x-2'>
+                                    <div className='flex items-center space-x-3'>
                                         <img
                                             src={PlayPNG}
                                             alt='Play'
                                             className='w-6 h-6'
                                         />
-                                        <h2 className='text-2xl font-bold text-white-200'>
-                                            SPOTIFY PLAY
+                                        <h2 className='font-archivo text-3xl font-bold text-white-200'>
+                                            melowave
                                         </h2>
                                     </div>
                                     <button

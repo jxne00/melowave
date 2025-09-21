@@ -1,6 +1,6 @@
-# Spotify Play
+# melowave
 
-A Spotify search application built with React, Vite, and TailwindCSS. Users can log in via Spotify, search for tracks, explore track details and play tracks.
+A music music web app built with React, Vite, and TailwindCSS. It integrates with the Spotify API so users can log in, search for tracks, view track details, and control playback directly in the browser.
 
 ## Features
 
@@ -17,7 +17,7 @@ This app is deployed on [spotify-play-rho.vercel.app](spotify-play-rho.vercel.ap
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/jxne00/spotify-play.git
+    git clone https://github.com/jxne00/melowave.git
     ```
 2. Install dependencies:
     ```bash
