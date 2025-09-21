@@ -2,6 +2,8 @@
 
 A music web app built with React, Vite, and TailwindCSS. It integrates with the Spotify API so users can log in, search for tracks, view track details, and control playback directly in the browser.
 
+This app is live at [melowave.vercel.app](https://melowave.vercel.app/)
+
 ## Features
 
 -   Spotify OAuth with PKCE flow
