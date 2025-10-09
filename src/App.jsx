@@ -19,10 +19,31 @@ export default function App() {
     const [currentPage, setCurrentPage] = useState(1);
     const tracksPerPage = 20;
 
+    // get track id from spotify url
+    const extractTrackIdFromUrl = (url) => {
+        const match = url.match(/spotify\.com\/track\/([a-zA-Z0-9]+)/);
+        return match ? match[1] : null;
+    };
+
     // fetch tracks from spotify
     const searchTracks = async (e) => {
         e.preventDefault();
         if (!accessToken) return;
+
+        // check if input is a spotify url
+        const trackId = extractTrackIdFromUrl(searchKey.trim());
+
+        if (trackId) {
+            const res = await fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
+                headers: { Authorization: `Bearer ${accessToken}` },
+            });
+
+            if (!res.ok) throw new Error('Spotify track fetch failed');
+            const data = await res.json();
+            setTracks([data]);
+            setCurrentPage(1);
+            return;
+        }
 
         const params = new URLSearchParams({
             q: searchKey,
