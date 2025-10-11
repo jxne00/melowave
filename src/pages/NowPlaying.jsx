@@ -8,6 +8,7 @@ import {
     ArrowDownTrayIcon,
     XMarkIcon,
 } from '@heroicons/react/24/solid';
+import { Copy, Check } from 'lucide-react';
 import './NowPlaying.css';
 
 export default function NowPlaying({ accessToken }) {
@@ -24,6 +25,8 @@ export default function NowPlaying({ accessToken }) {
     // spotifycode
     const [showCode, setShowCode] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
+
+    const [copiedField, setCopiedField] = useState(null);
 
     useEffect(() => {
         if (!accessToken) return;
@@ -101,6 +104,12 @@ export default function NowPlaying({ accessToken }) {
         window.addEventListener('keydown', handleSpace);
         return () => window.removeEventListener('keydown', handleSpace);
     }, [player]);
+
+    const handleCopy = (text, field) => {
+        navigator.clipboard.writeText(text);
+        setCopiedField(field);
+        setTimeout(() => setCopiedField(null), 1000);
+    };
 
     const handleBack = async () => {
         if (player) await player.pause();
@@ -197,10 +206,38 @@ export default function NowPlaying({ accessToken }) {
             />
 
             {/* track info */}
-            <h1 className='font-inter text-3xl font-semibold mb-2'>{track.name}</h1>
-            <p className='font-inter text-lg text-gray-400 mb-8'>
-                {track.artists.map((a) => a.name).join(', ')}
-            </p>
+            <div className='relative inline-flex items-center group mb-2'>
+                <h1 className='font-inter text-3xl font-semibold'>{track.name}</h1>
+                <button
+                    onClick={() => handleCopy(track.name, 'title')}
+                    className='absolute -right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out'>
+                    {copiedField === 'title' ? (
+                        <Check className='w-4 h-4 text-gray-400' />
+                    ) : (
+                        <Copy className='w-4 h-4 text-gray-400 hover:text-white' />
+                    )}
+                </button>
+            </div>
+
+            <div className='relative inline-flex items-center group mb-2'>
+                <p className='font-inter text-lg text-gray-400'>
+                    {track.artists.map((a) => a.name).join(', ')}
+                </p>
+                <button
+                    onClick={() =>
+                        handleCopy(
+                            track.artists.map((a) => a.name).join(', '),
+                            'artist'
+                        )
+                    }
+                    className='absolute -right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out'>
+                    {copiedField === 'artist' ? (
+                        <Check className='w-4 h-4 text-gray-400' />
+                    ) : (
+                        <Copy className='w-4 h-4 text-gray-400 hover:text-white' />
+                    )}
+                </button>
+            </div>
 
             {/* playback bar */}
             <div className='flex flex-col items-center w-full max-w-md'>
